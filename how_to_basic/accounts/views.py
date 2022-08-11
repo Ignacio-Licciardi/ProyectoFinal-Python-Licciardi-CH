@@ -48,7 +48,7 @@ def login_user(request):
 
 # Edición de Usuario
 @login_required
-def editar_perfil(request):
+def edit_profile(request):
     usuario=request.user
     datos_usuario, _ = DatosUsuario.objects.get_or_create(user=usuario)
 
@@ -63,8 +63,8 @@ def editar_perfil(request):
             if informacion.get('email'):
                 usuario.email=informacion.get('email')
             if informacion.get('avatar'):
-                datos_usuario.avatar=informacion.get('avatar')
-            if  informacion.get('password_1') == informacion.get('password_2'):
+                usuario.avatar=informacion.get('avatar')
+            if informacion.get('password_1') and informacion.get('password_1') == informacion.get('password_2'):
                 usuario.set_password(informacion.get('password_1'))
             datos_usuario.save()
             usuario.save()
