@@ -46,13 +46,11 @@ def login_user(request):
 
 
 
-
-#Edicion de usuario 
-
+# Edición de Usuario
 @login_required
 def editar_perfil(request):
     usuario=request.user
-    datos_usuario=DatosUsuario.objects.get_or_create(user=usuario)
+    datos_usuario, _ = DatosUsuario.objects.get_or_create(user=usuario)
 
     if request.method == 'POST':
         formulario=UserEditForm(request.POST, request.FILES)
@@ -64,14 +62,14 @@ def editar_perfil(request):
                 usuario.last_name=informacion.get('last_name')
             if informacion.get('email'):
                 usuario.email=informacion.get('email')
-            #if informacion.get('avatar'):
-                #datos_usuario.avatar=informacion.get('avatar')
+            if informacion.get('avatar'):
+                datos_usuario.avatar=informacion.get('avatar')
             if  informacion.get('password_1') == informacion.get('password_2'):
                 usuario.set_password(informacion.get('password_1'))
-            #datos_usuario.save()
+            datos_usuario.save()
             usuario.save()
 
-            return redirect(request, 'index.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
+            return render(request, 'index.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
         else:
             return render(request, 'edit_profile.html', {'formulario':formulario})
 
@@ -80,12 +78,11 @@ def editar_perfil(request):
             'email':usuario.email,
             'first_name': usuario.first_name,
             'last_name': usuario.last_name,
-            #'avatar': datos_usuario.avatar
+            'avatar': datos_usuario.avatar
         }
     )
 
     return render(request, 'edit_profile.html', {'formulario':formulario})
-
 #Cierre de sesion
 
 @login_required
