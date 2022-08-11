@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'editar_perfil'  %}" method="POST">
+    <form action="{% url 'edit_profile'  %}" method="POST">
         {% csrf_token %}
         <table>
             {{ formulario.as_table }} 
