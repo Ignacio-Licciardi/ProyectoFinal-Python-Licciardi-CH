@@ -10,6 +10,7 @@
     <h1>Prueba</h1>
     {% if request.user.is_authenticated %}
     <p>{{ user }}</p>
+    <img src="{{ url }}" alt="">
     <p>{{ mensaje }}</p>
 
     {% endif %}

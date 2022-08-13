@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .forms import UserRegisterForm , UserEditForm
+from .forms import UserRegisterForm , UserEditForm , AvatarForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -88,3 +88,24 @@ def edit_profile(request):
 @login_required
 def logout_user(request):
     return render(request,'logout.html')
+
+
+#Agregar avatares
+@login_required
+def add_avatar(request):
+    if request.method == 'POST':
+        formulario=AvatarForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            avatarViejo=DatosUsuario.objects.get(user=request.user)
+            if(avatarViejo.imagen):
+                avatarViejo.delete()
+            avatar=DatosUsuario(user=request.user, imagen=formulario.cleaned_data['imagen'])
+            avatar.save()
+            return render(request, 'index.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
+    else:
+        formulario=AvatarForm()
+    return render(request, 'add_avatar.html', {'formulario':formulario, 'usuario':request.user})
+
+
+
+    

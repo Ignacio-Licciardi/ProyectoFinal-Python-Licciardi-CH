@@ -24,3 +24,7 @@ class UserEditForm(forms.Form):
     password_2 = forms.CharField(label='Repetir Password', widget=forms.PasswordInput, required=False)
     avatar = forms.ImageField(required=False)
 
+
+class AvatarForm(forms.Form):
+    image= forms.ImageField(label="Imagen")
+
