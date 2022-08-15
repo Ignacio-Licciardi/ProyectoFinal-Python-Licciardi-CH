@@ -2,13 +2,14 @@
 {% load static %}
 
 {% block title %}
-<h1>Pagina de inicio Proyecto Final</h1>
+<br>
+<h1>Pagina de Inicio Proyecto Final</h1>
 {% endblock title %} 
 
+
 {% block body %}
-    <h1>Prueba</h1>
     {% if request.user.is_authenticated %}
-    <p>{{ user }}</p>
+    <h2>{{ user }}</h2>
     <img src="{{ url }}" alt="">
     <p>{{ mensaje }}</p>
     {% endif %}

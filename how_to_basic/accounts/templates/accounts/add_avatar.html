@@ -2,16 +2,19 @@
 {% load static %}
 
 {% block title %}
+<br>
 <h1>AGREGAR AVATAR: {{ usuario }}</h1>
 {% endblock title %} 
-
+{% block image %}
+{% endblock image %} 
 {% block body %}
 <form action="{% url 'add_avatar'  %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
 
     <table>
         {{ formulario.as_table }}
-    </table>
 
+    </table>
+    <br>
     <!--- -->
     <input type="submit" value="Agregar">
 

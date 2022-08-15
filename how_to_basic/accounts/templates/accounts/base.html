@@ -26,17 +26,25 @@
             </a>
     
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="{% url 'index' %}" class="nav-link px-2 text-white">Home</a></li>
               <li><a href="#" class="nav-link px-2 text-white">Pages</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">Profile</a></li>
+              <li><a href="{% url 'edit_profile' %}" class="nav-link px-2 text-white">Profile</a></li>
               <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li> 
+              <li><a href="#" class="nav-link px-2 text-white">Messages</a></li> 
+              <li><a href="{% url 'add_avatar' %}" class="nav-link px-2 text-white">Add Avatar</a></li> 
             </ul>
-
+            {% if not request.user.is_authenticated %} 
             <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2  " ><a href=#>Login</a></button>
-              <button type="button" class="btn btn-warning"><a href=#>Sign-up</a></button>
+              <button type="button" class="btn btn-outline-light me-2  " ><a href="{% url 'login' %}">Login</a></button>
+              <button type="button" class="btn btn-warning"><a href="{% url 'register' %}">Sign-up</a></button>
             </div>
+            {% else %}
+            {% block image %}
+            <img class=" avatar-inicio " src="{{ url }}" alt="" width="50" height="50" >
+            {% endblock image %} 
+            
+            <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
+            {% endif %}
           </div>
         </div>
       </header>
@@ -46,7 +54,7 @@
       
     {% endblock title %}    
     <div class="text-blog">
-    <h1> Separando header y footer </h1>
+    
     {% block body %}
 
     {% endblock body %}    

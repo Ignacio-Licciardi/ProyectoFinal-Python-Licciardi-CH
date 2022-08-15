@@ -3,12 +3,12 @@
 
 
 {% block title %}
+<br>
 <h1>Pagina de Login</h1>
 {% endblock title %} 
 
 {% block body %}
 
-<h1>{{ mensaje  }}</h1>
 <form action="{% url 'login' %}"  method="POST"> {% csrf_token %}
 
     {{ form.as_p }}

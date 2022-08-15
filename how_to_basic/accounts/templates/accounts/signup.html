@@ -3,11 +3,12 @@
 
 
 {% block title %}
+<br>
 <h1>Pagina de Sign Up</h1>
 {% endblock title %} 
 
 {% block body %}
-<h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+<h2 class="h3 mb-3 fw-normal">Please sign up</h2>
 <form action="{% url 'register' %}"  method="POST"> {% csrf_token %}
 
   {{ form.as_p }}

@@ -2,9 +2,12 @@
 {% load static %}
 
 {% block title %}
+<br>
 <h1>Pagina de Edicion de perfil</h1>
 {% endblock title %} 
+{% block image %}
 
+{% endblock image %} 
 {% block body %}
 <form action="{% url 'edit_profile'  %}" method="POST">
     {% csrf_token %}
