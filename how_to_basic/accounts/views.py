@@ -87,21 +87,7 @@ def logout_user(request):
 
 
 #Agregar avatares
-""" @login_required
-def add_avatar(request):
-    if request.method == 'POST':
-        formulario=AvatarForm(request.POST, request.FILES)
-        if formulario.is_valid() and len(request.FILES) != 0 :
-            avatar_viejo=DatosUsuario.objects.get(user=request.user)
-            if(avatar_viejo.avatar):
-                avatar_viejo.delete()
-            avatar_nuevo=DatosUsuario(user=request.user, avatar = formulario.cleaned_data['image'])
-            avatar_nuevo.save()
-            return render(request, 'index.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
-    else:
-        formulario=AvatarForm()
-    return render(request, 'add_avatar.html', {'formulario':formulario, 'usuario':request.user})
- """
+
 @login_required
 def add_avatar(request):
     if request.method == 'POST':

@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-    <main class=" text-center form-signin w-100 m-auto">
-        <img class="mb-4" src="#" alt="" width="300" height="300">
-        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-        <form action="{% url 'register' %}"  method="POST"> {% csrf_token %}
-        
-          {{ form.as_p }}
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-        
-        </form>
-    </main>
-</body>
-</html>
+{% block title %}
+<h1>Pagina de Sign Up</h1>
+{% endblock title %} 
+
+{% block body %}
+<h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+<form action="{% url 'register' %}"  method="POST"> {% csrf_token %}
+
+  {{ form.as_p }}
+
+  <br>
+
+  <button type="submit">Sign up</button>
+
+</form>
+{% endblock body %}    
+
+
+
+
