@@ -6,7 +6,9 @@
 <br>
 <h1>Pagina de Login</h1>
 {% endblock title %} 
+{% block image %}
 
+{% endblock image %} 
 {% block body %}
 
 <form action="{% url 'login' %}"  method="POST"> {% csrf_token %}

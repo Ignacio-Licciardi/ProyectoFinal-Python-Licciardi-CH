@@ -1,0 +1,7 @@
+<a class="btn btn-primary" href="{% url 'list_blog' %}">Mostrar Todos</a>
+<h1 style="color: blue"> Blog </h1>
+
+<div class="container-fluid justify-content-center"><form method="post"> {% csrf_token %} 
+    Estás seguro de que quieres eliminar a "{{ object }}"
+ <input type="submit" value="SI">
+</form></div>

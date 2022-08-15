@@ -1,0 +1,7 @@
+<h2>Detalle del Posteo</h2>
+<hr></hr>
+<p><h3>Titulo: {{ blog.titulo }}</h3></p>
+<p><h4>Subtitulo: {{ blog.subtitulo }}</h4></p>
+<h4>Descripción:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ blog.cuerpo }}</textarea></p>
+<p><a class="btn2 btn-primary" href="{% url 'list_blog' %}">Regresar a la lista de posteos</a></p>

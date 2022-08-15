@@ -1,0 +1,11 @@
+<h1 style="color: blue">  CLIENTES </h1>
+
+<h2 style="color: green;">Listado Clientes</h2>
+{% for blog in object_list %}
+    <ul><li>
+        {{ blog }}
+        <a href="{% url 'delete_blog' blog.id %}">Eliminar</a>
+        <a href="{% url 'update_blog' blog.id %}">Modificar</a>
+        <a href="{% url 'detail_blog' blog.id %}">Detalles</a>
+    </li></ul>
+{% endfor %}
