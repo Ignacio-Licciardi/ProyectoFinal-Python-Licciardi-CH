@@ -6,6 +6,6 @@ from accounts.models import DatosUsuario
 def index(request):
     avatares = DatosUsuario.objects.filter(user = request.user.id)
     if avatares.exists():
-        return render(request,"index.html", {"url":avatares[0].avatar.url})
+        return render(request,"accounts/index.html", {"url":avatares[0].avatar.url})
     else:
-        return render(request, "index.html")
+        return render(request, "accounts/index.html")
