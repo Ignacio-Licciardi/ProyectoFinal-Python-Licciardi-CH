@@ -24,6 +24,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('accounts/',include('accounts.urls')),
     path('blog/',include('blog.urls')),
+    path('messages/', include('message.urls'))
 ]
 
 

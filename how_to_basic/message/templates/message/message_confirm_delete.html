@@ -1,0 +1,10 @@
+<h2>Eliminar Mensaje</h2>
+<hr></hr>
+
+<p>Estás seguro de eliminar el mensaje: {{ message.title }}?</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn2 btn-warning" type="submit" value="Si, eliminar.">
+    <a class="btn2 btn-primary" href="{% url 'Messages' %}" >Cancelar</a>
+</form>
