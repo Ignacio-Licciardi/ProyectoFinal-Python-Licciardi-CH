@@ -110,6 +110,6 @@ def add_avatar(request):
     return render(request, 'accounts/add_avatar.html', {'formulario':formulario, 'usuario':request.user})
 
 
-def prueba_template(request):
-    return render(request,"accounts/prueba_template.html")
+def about(request):
+    return render(request,"accounts/about.html")
     

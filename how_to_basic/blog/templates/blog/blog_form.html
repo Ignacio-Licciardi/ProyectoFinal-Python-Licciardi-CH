@@ -1,8 +1,23 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
 
 
+{% block title %}
+<br>
+<h1>Crear Publicacion</h1>
+{% endblock title %} 
+{% block image %}
+
+{% endblock image %} 
+
+{% block body %}
 <div class="container-fluid justify-content-center">
     <form method="post"> {% csrf_token %} 
     {{form.as_p}}
     <input type="submit" value="ENVIAR">
     </form>
 </div>
+<br>
+<a class="btn btn-primary" href="{% url 'list_blog' %}">Mostrar Publicaciones</a>
+
+{% endblock body %}   

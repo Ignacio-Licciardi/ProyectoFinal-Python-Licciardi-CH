@@ -6,25 +6,25 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class CreateBlog(CreateView):
+class CreateBlog(LoginRequiredMixin, CreateView):
     model = Blog
     success_url = reverse_lazy("index")
     fields = ["titulo", "subtitulo","cuerpo"]
 
-class ListBlog(ListView):
+class ListBlog(LoginRequiredMixin, ListView):
     model = Blog
     template_name = "blog/list_blog.html"
 
-class UpdateBlog(UpdateView):
+class UpdateBlog(LoginRequiredMixin, UpdateView ):
     model = Blog
     success_url = reverse_lazy("index")
     fields = ["titulo", "subtitulo", "cuerpo"]
 
-class DeleteBlog(DeleteView):
+class DeleteBlog(LoginRequiredMixin, DeleteView):
     model = Blog
     success_url = reverse_lazy("index")
 
-class DetailBlog(DetailView):
+class DetailBlog(LoginRequiredMixin, DetailView):
     model = Blog
     template_name = "blog/blog_detail.html"
     fields = ['tiulo', 'subtitulo', 'cuerpo']

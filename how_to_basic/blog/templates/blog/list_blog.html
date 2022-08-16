@@ -1,11 +1,30 @@
-<h1 style="color: blue">  CLIENTES </h1>
+{% extends 'accounts/base.html' %}
+{% load static %}
 
-<h2 style="color: green;">Listado Clientes</h2>
+
+{% block title %}
+<br>
+<h1 style="color: rgb(255, 0, 0)">  Publicaciones </h1>
+<br>
+<h2 style="color: rgb(255, 0, 0);">Lista de Publicaciones</h2>
+{% endblock title %} 
+{% block image %}
+{% endblock image %} 
+
+{% block body %}
 {% for blog in object_list %}
     <ul><li>
         {{ blog }}
-        <a href="{% url 'delete_blog' blog.id %}">Eliminar</a>
-        <a href="{% url 'update_blog' blog.id %}">Modificar</a>
-        <a href="{% url 'detail_blog' blog.id %}">Detalles</a>
+        <button style="background-color: black"><a href="{% url 'delete_blog' blog.id %}">Eliminar</a></button>
+        <button style="background-color: black"><a href="{% url 'update_blog' blog.id %}">Modificar</a></button>
+        <button style="background-color: black"><a href="{% url 'detail_blog' blog.id %}">Detalles</a></button>
     </li></ul>
 {% endfor %}
+<br>
+<br>
+{% endblock body %}   
+
+
+
+
+

@@ -1,7 +1,23 @@
-<h2>Detalle del Posteo</h2>
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+
+{% block title %}
+<br>
+<h2 style="color: rgb(255, 0, 0)">Detalle del Posteo</h2>
+
+{% endblock title %} 
+{% block image %}
+{% endblock image %} 
+
+{% block body %}
 <hr></hr>
-<p><h3>Titulo: {{ blog.titulo }}</h3></p>
+<p><h2>Titulo: {{ blog.titulo }}</h2></p>
 <p><h4>Subtitulo: {{ blog.subtitulo }}</h4></p>
-<h4>Descripción:</h4>
+<h6>Descripción:</h6>
 <p><textarea readonly rows="7" cols="90" >{{ blog.cuerpo }}</textarea></p>
-<p><a class="btn2 btn-primary" href="{% url 'list_blog' %}">Regresar a la lista de posteos</a></p>
+<p><a class="btn btn-primary" href="{% url 'list_blog' %}">Regresar a la lista de posteos</a></p>
+{% endblock body %}   
+
+
+
