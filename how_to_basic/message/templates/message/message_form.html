@@ -1,7 +1,26 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block title %}
+<br>
+<h1>Crear Mensaje</h1>
+{% endblock title %} 
 
+{% block image %}
+{% endblock image %} 
 
+{% block body %}
+{% if request.user.is_authenticated %} 
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class="btn btn-primary" value="Guardar mensaje" />
 </form>
+{% endif %}
+{% endblock body %}   
+
+
+
+
+
+
+

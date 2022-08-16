@@ -1,8 +1,23 @@
-<h2>Detalle del Mensaje</h2>
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block title %}
+<br>
+<h2 >Mensaje detallado</h2>
+{% endblock title %} 
+
+{% block image %}
+{% endblock image %} 
+
+
+{% block body %}
 <hr></hr>
 <p><h3>Mensaje: {{ message.title }}</h3></p>
 <p><h4>Emisor: {{ message.sender }}</h4></p>
 <p><h4>Receptor: {{ message.reciever }}</h4></p>
 <h4>Descripción:</h4>
 <p><textarea readonly rows="7" cols="90" >{{ message.content }}</textarea></p>
-<p><a class="btn2 btn-primary" href="{% url 'Messages' %}">Regresar a la lista de mensajes</a></p>
+<p><a class="btn btn-success" href="{% url 'Messages' %}">Regresar a la lista de mensajes</a></p>
+{% endblock body %}   
+
+
+

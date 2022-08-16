@@ -16,6 +16,8 @@
 <p><h4>Subtitulo: {{ blog.subtitulo }}</h4></p>
 <h6>Descripción:</h6>
 <p><textarea readonly rows="7" cols="90" >{{ blog.cuerpo }}</textarea></p>
+<p><h5>Autor: {{ blog.autor }}</h5></p>
+<p><h5>Fecha: {{ blog.fecha }}</h5></p>
 <p><a class="btn btn-primary" href="{% url 'list_blog' %}">Regresar a la lista de posteos</a></p>
 {% endblock body %}   
 

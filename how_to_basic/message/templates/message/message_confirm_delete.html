@@ -1,10 +1,27 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block title %}
+<br>
 <h2>Eliminar Mensaje</h2>
+{% endblock title %} 
+
+{% block image %}
+{% endblock image %} 
+
+
+{% block body %}
 <hr></hr>
 
 <p>Estás seguro de eliminar el mensaje: {{ message.title }}?</p>
 
 <form action="" method="POST">
     {% csrf_token %}
-    <input class="btn2 btn-warning" type="submit" value="Si, eliminar.">
-    <a class="btn2 btn-primary" href="{% url 'Messages' %}" >Cancelar</a>
+    <input class="btn btn-danger" type="submit" value="Si, eliminar.">
+    <a class="btn btn-success" href="{% url 'Messages' %}" >Cancelar</a>
 </form>
+
+
+{% endblock body %}   
+
+
+
