@@ -3,15 +3,21 @@
 
 {% block title %}
 <br>
-<h1>Pagina de Inicio Proyecto Final</h1>
+<h1>How to Basic</h1>
+<br>
+<h5>Bienvenidos a how to basic, un blog dedicado a documentar cosas basicas o mejor llamado LifeHacks para poder vivir mejor </h5>
 {% endblock title %} 
 
+   
+{% block mensaje %}
+    <p>{{ mensaje }}</p>
+{% endblock mensaje %} 
 
 {% block body %}
     {% if request.user.is_authenticated %}
-    <h2>{{ user }}</h2>
-    <img src="{{ url }}" alt="">
-    <p>{{ mensaje }}</p>
+    <h2>Bienvenido usuario:  {{ user }}</h2>
+    <!-- <img src="{{ url }}" alt=""> -->
+
     {% endif %}
 {% endblock body %}    
 

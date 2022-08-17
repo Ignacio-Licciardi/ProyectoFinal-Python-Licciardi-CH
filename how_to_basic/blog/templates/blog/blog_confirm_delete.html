@@ -1,9 +1,27 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
 
 
-<a class="btn btn-primary" href="{% url 'list_blog' %}">Mostrar Todos</a>
-<h1 style="color: blue"> Blog </h1>
+{% block title %}
+<br>
+<h2 style="color: rgb(255, 0, 0)">Quitar post</h2>
 
-<div class="container-fluid justify-content-center"><form method="post"> {% csrf_token %} 
+{% endblock title %} 
+{% block image %}
+{% endblock image %} 
+
+{% block body %}
+<a class="btn btn-primary" href="{% url 'list_blog' %}">Regresar a la lista de posteos</a>
+<br>
+<br>
+<div class="container-fluid justify-content-center">
+    <form method="post"> {% csrf_token %} 
     Estás seguro de que quieres eliminar a "{{ object }}"
- <input type="submit" value="SI">
-</form></div>
+    <input class="btn btn-danger" type="submit" value="SI">
+    </form>
+</div>
+{% endblock body %}   
+
+
+
+

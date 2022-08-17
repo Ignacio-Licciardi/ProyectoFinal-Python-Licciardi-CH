@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile/', edit_profile, name='edit_profile'),
     path('addAvatar/', add_avatar, name='add_avatar'),
     path('about/', about, name='about'),
+    path('success/', about, name='success'),
 ]

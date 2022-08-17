@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CreateBlog(LoginRequiredMixin, CreateView):
     model = Blog
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("list_blog")
     fields = ["titulo", "subtitulo","cuerpo","autor","fecha","imagen"]
 
 class ListBlog(LoginRequiredMixin, ListView):
@@ -17,12 +17,12 @@ class ListBlog(LoginRequiredMixin, ListView):
 
 class UpdateBlog(LoginRequiredMixin, UpdateView ):
     model = Blog
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("list_blog")
     fields = ["titulo", "subtitulo", "cuerpo","autor","fecha","imagen"]
 
 class DeleteBlog(LoginRequiredMixin, DeleteView):
     model = Blog
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("list_blog")
 
 class DetailBlog(LoginRequiredMixin, DetailView):
     model = Blog

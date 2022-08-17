@@ -15,7 +15,7 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data["username"]
             form.save()
-            return render(request, 'accounts/index.html', {'form':form,'mensaje':f"Usuario Creado:  {username}"})
+            return render(request, 'accounts/success.html', {'form':form,'mensaje':f"Usuario Creado:  {username}. Inicie Sesion"})
     else:
         form = UserRegisterForm()
     return render(request, 'accounts/signup.html', {'form': form})
@@ -35,7 +35,7 @@ def login_user(request):
             
             if user_1 is not None:
                 login(request, user_1)
-                return render(request, 'accounts/index.html', {'form':form,'mensaje':f"Bienvenido {user_1}"})
+                return render(request, 'accounts/success.html', {'form':form,'mensaje':f"Usuario Logueado: {user_1}"})
             else:
                 return render(request, 'accounts/login.html', {'form':form,'mensaje':f"Usuario o clave incorrectos"})
         else:
@@ -66,7 +66,7 @@ def edit_profile(request):
                 usuario.set_password(informacion.get('password_1'))
             usuario.save()
 
-            return render(request, 'accounts/index.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
+            return render(request, 'accounts/success.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
         else:
             return render(request, 'accounts/edit_profile.html', {'formulario':formulario})
 
@@ -103,7 +103,7 @@ def add_avatar(request):
                     os.remove(avatar_n.avatar.path)
                 avatar_n.avatar = image
             avatar_n.save()
-            return render(request, 'accounts/index.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
+            return render(request, 'accounts/success.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
 
 
     formulario=AvatarForm()
@@ -112,4 +112,7 @@ def add_avatar(request):
 
 def about(request):
     return render(request,"accounts/about.html")
+
+def success(request):
+    return render(request,"accounts/success.html")
     
