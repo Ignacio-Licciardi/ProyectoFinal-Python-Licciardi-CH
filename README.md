@@ -1,4 +1,4 @@
-# ProyectoFinal-Python-Godas-Chocron-Licciardi
+# ProyectoFinal-Python-Licciardi
 
 El pryecto fue realizado por Ignacio Licciardi. Comenzamos debatiendo y decidimos hacer un blog donde cada uno pudiera compartir su LifeHack basico.
 Luego de crear el proyecto django empezamos con la app de accounts donde esta todo lo referido a la creacion de usuarios,avatar, su respectiva edicion, inicio y cierre de sesion
